@@ -1,4 +1,7 @@
-const axios = window.axios
+const {
+  axios,
+  alert
+} = window
 
 // let count = 0
 
@@ -20,6 +23,19 @@ const axios = window.axios
 //     })
 //   })
 //   .catch(err => console.error(err))
+
+document.getElementById('addUser').addEventListener('click', event => {
+  event.preventDefault()
+
+  const user = {
+    name: document.getElementById('name').value,
+    age: parseInt(document.getElementById('age').value)
+  }
+
+  axios.post('/user', user)
+    .then(() => alert('User created!'))
+    .catch(err => console.error(err))
+})
 
 document.getElementById('getUser').addEventListener('click', event => {
   event.preventDefault()

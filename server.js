@@ -3,16 +3,36 @@ const { join } = require('path')
 
 const app = express()
 
+app.use(express.static(join(__dirname, 'public')))
+
 // GET POST PUT DELETE
 
-app.get('/', (req, res) => {
-  res.sendFile(join(__dirname, 'index.html'))
+const users = [
+  {
+    name: 'John Doe',
+    age: 47
+  },
+  {
+    name: 'Jane Doe',
+    age: 48
+  },
+  {
+    name: 'Jack Doe',
+    age: 49
+  }
+]
+
+app.get('/users', (req, res) => {
+  res.json(users)
 })
 
-app.get('/test', (req, res) => {
-  res.send('<h1>Hello World</h1>')
-})
+// app.get('/', (req, res) => {
+//   res.sendFile(join(__dirname, 'index.html'))
+// })
+
+// app.get('/test', (req, res) => {
+//   res.sendFile(join(__dirname, 'test.html'))
+//   // res.send('<h1>Hello World</h1>')
+// })
 
 app.listen(3000)
-
-// https://github.com/QFults/09-07-21

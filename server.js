@@ -7,24 +7,40 @@ app.use(express.static(join(__dirname, 'public')))
 
 // GET POST PUT DELETE
 
-const users = [
-  {
-    name: 'John Doe',
-    age: 47
-  },
-  {
-    name: 'Jane Doe',
-    age: 48
-  },
-  {
-    name: 'Jack Doe',
-    age: 49
-  }
-]
+// const users = [
+//   {
+//     name: 'John Doe',
+//     age: 47
+//   },
+//   {
+//     name: 'Jane Doe',
+//     age: 48
+//   },
+//   {
+//     name: 'Jack Doe',
+//     age: 49
+//   }
+// ]
 
-app.get('/users', (req, res) => {
-  res.json(users)
-})
+// http://localhost:3000/user/John Doe
+// app.get('/user/:name', (req, res) => {
+//   const name = req.params.name
+//   const user = users.filter(user => user.name === name)[0]
+
+//   res.json(user)
+// })
+
+// http://localhost:3000/user?name=John Doe
+// app.get('/user', (req, res) => {
+//   const name = req.query.name
+//   const user = users.filter(user => user.name === name)[0]
+
+//   res.json(user)
+// })
+
+// app.get('/users', (req, res) => {
+//   res.json(users)
+// })
 
 // app.get('/', (req, res) => {
 //   res.sendFile(join(__dirname, 'index.html'))
